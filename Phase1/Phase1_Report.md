@@ -13,3 +13,11 @@
 <img src="Configuration_Screenshot/Metasploitable3_IP_Address.png" alt="Metasploitable3 IP Address" width="400"/>
 
 Both machines are connected using a **Bridged Network** configuration, allowing direct communication over the host's local network.
+
+
+- **Ping Attacker Machine From VIctim Machine:**
+<img src="Configuration_Screenshot/Ping_Kali_to_Metasploitable3.png" alt="Metasploitable3 IP Address" width="400"/>
+- **Ping Attacker Machine From VIctim Machine:**
+<img src="Configuration_Screenshot/Ping_Metasploitable3_to_Kali.png" alt="Metasploitable3 IP Address" width="400"/>
+
+

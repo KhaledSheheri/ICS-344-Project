@@ -69,12 +69,12 @@ sudo chmod 644 /home/vagrant/auth.log
 4- After logout from victim machine and back to attacker, we can copy the file to attacker using:
 
 ```bash
-scp vagrant@172.20.10.5:/home/vagrant/auth.log •
+scp vagrant@172.20.10.5:/home/vagrant/auth.log .
 ```
 
 <img src="Splunk_Screenshots/Extracting_Logs.png" alt="Extracting_Logs.png" width="400"/>
 
-## Step 4: Upload Logs File to Splunk
+## Step 5: Upload Logs File to Splunk
 
 1- Run Splunk using the helper downloaded earlier
 2- Access Splunk on http://localhost:8000/
@@ -107,10 +107,15 @@ index=main sshd "Failed password" OR "Accepted password" | rex "(?<status>Failed
 ### 4- Filter the events by attackers host
 
 ```bash
-index=main sshd stats count by host
+index=main sshd | stats count by host
 ```
 
 <img src="Splunk_Screenshots/Count_by_Host.png" alt="Count_by_Host" width="400"/>
+
+## Conclusion
+
+Through this phase, we successfully extracted SSH attack logs, uploaded them into Splunk, performed searches to detect brute-force behavior, and visualized login attempts using dashboards.  
+The SIEM platform enabled fast detection and analysis of cybersecurity incidents, demonstrating its importance in real-world attack monitoring and response.
 
 
 

@@ -72,7 +72,7 @@ sudo chmod 644 /home/vagrant/auth.log
 scp vagrant@172.20.10.5:/home/vagrant/auth.log •
 ```
 
-** add the img of copying
+<img src="Splunk_Screenshots/Extracting_Logs.png" alt="Extracting_Logs.png" width="400"/>
 
 ## Step 4: Upload Logs File to Splunk
 
@@ -88,13 +88,13 @@ scp vagrant@172.20.10.5:/home/vagrant/auth.log •
 sshd
 ```
 
-** picrure of The_moment_when_correct_found
+<img src="Splunk_Screenshots/Brute_Force_Success_Moment.png" alt="Brute_Force_Success_Moment" width="400"/>
 
 **We can walkthrough the events and notice the moment at which brute-force found the correct credentials**
 
 ### 2- Check the Pattern of sshd attacks
 
-** picrure of The_moment_when_correct_found
+<img src="Splunk_Screenshots/SSHD_pattern.png" alt="SSHD_pattern" width="400"/>
 
 ### 3- Filter the events by accepted and failed logins 
 
@@ -102,7 +102,7 @@ sshd
 index=main sshd "Failed password" OR "Accepted password" | rex "(?<status>Failed password| Accepted password)" | stats count by status
 ```
 
-** picrure of accepted_and_failed
+<img src="Splunk_Screenshots/Accepted_and_Failed.png" alt="Accepted_and_Failed" width="400"/>
 
 ### 4- Filter the events by attackers host
 
@@ -110,7 +110,7 @@ index=main sshd "Failed password" OR "Accepted password" | rex "(?<status>Failed
 index=main sshd stats count by host
 ```
 
-** picrure of count_by_host
+<img src="Splunk_Screenshots/Count_by_Host.png" alt="Count_by_Host" width="400"/>
 
 
 

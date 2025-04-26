@@ -65,8 +65,8 @@ The objective of this task is to exploit a vulnerable SSH service running on Met
 
    - **Known Credentials** use the known credintials directly which are **vagrant**:
    ```bash
-   set USER_FILE vagrant
-   set PASS_FILE vagrant
+   set USERNAME vagrant
+   set PASSWORD vagrant
    ```
 
 7. Run the module:

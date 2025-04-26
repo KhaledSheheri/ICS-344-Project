@@ -61,7 +61,6 @@ The objective of this task is to exploit a vulnerable SSH service running on Met
    set USER_FILE /usr/share/wordlists/metasploit/unix_users.txt
    set PASS_FILE /usr/share/wordlists/rockyou.txt
    ```
-   <img src="Configuration_Screenshot/Trying_Burtforce.png" alt="Kali IP Address" width="400"/>
    ** This step may take long time to find the right credintials
 
    - **Known Credentials** use the known credintials directly which are **vagrant**:
@@ -69,25 +68,25 @@ The objective of this task is to exploit a vulnerable SSH service running on Met
    set USER_FILE vagrant
    set PASS_FILE vagrant
    ```
-   <img src="Configuration_Screenshot/Trying_Vagrant.png" alt="Kali IP Address" width="400"/>
 
 7. Run the module:
    ```bash
    run
    ```
    - **Unknown Using Brute-Force**
-   <img src="Configuration_Screenshot/Trying_Burtforce.png" alt="Kali IP Address" width="400"/>
+   <img src="SSH_Compromise/Trying_Burtforce.png" alt="Kali IP Address" width="400"/>
+   <img src="SSH_Compromise/Burtforce_Run.png" alt="Kali IP Address" width="400"/>
 
    - **Known Credentials**
-   <img src="Configuration_Screenshot/Trying_Burtforce.png" alt="Kali IP Address" width="400"/>
+   <img src="SSH_Compromise/Testing_Vagrant.png" alt="Kali IP Address" width="400"/>
 
 
 ### Result
 - The Metasploit module successfully authenticated using the username `vagrant` and password `vagrant`.
 - The SSH login was confirmed, giving shell access to the Metasploitable3 machine.
 
-**Proof Screenshot:**  
-> [Insert Screenshot of Successful Metasploit Login]
+**Proof Screenshot Using Vagrant Credentials:**  
+<img src="SSH_Compromise/Using_Crefentials.png" alt="Kali IP Address" width="400"/>
 
 ---
 

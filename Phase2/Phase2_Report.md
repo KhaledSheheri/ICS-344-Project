@@ -119,5 +119,6 @@ The SIEM platform enabled fast detection and analysis of cybersecurity incidents
 
 
 
+# End of Phase 2
 
 

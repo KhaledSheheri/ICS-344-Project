@@ -73,7 +73,7 @@ The objective of this task is to exploit a vulnerable SSH service running on Met
    ```bash
    run
    ```
-   - **Unknown Using Brute-Force**
+   - **Unknown Using Brute-Force**    <br/>
    <img src="SSH_Compromise/Trying_Burtforce.png" alt="Kali IP Address" width="400"/><br/>
    <img src="SSH_Compromise/Burtforce_Run.png" alt="Kali IP Address" width="400"/>
 

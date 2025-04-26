@@ -74,7 +74,7 @@ The objective of this task is to exploit a vulnerable SSH service running on Met
    run
    ```
    - **Unknown Using Brute-Force**
-   <img src="SSH_Compromise/Trying_Burtforce.png" alt="Kali IP Address" width="400"/>
+   <img src="SSH_Compromise/Trying_Burtforce.png" alt="Kali IP Address" width="400"/><br/>
    <img src="SSH_Compromise/Burtforce_Run.png" alt="Kali IP Address" width="400"/>
 
    - **Known Credentials**
@@ -86,7 +86,7 @@ The objective of this task is to exploit a vulnerable SSH service running on Met
 - The SSH login was confirmed, giving shell access to the Metasploitable3 machine.
 
 **Proof Screenshot Using Vagrant Credentials:**  
-<img src="SSH_Compromise/Using_Crefentials.png" alt="Kali IP Address" width="400"/>
+<img src="SSH_Compromise/Using_Credentials.png" alt="Kali IP Address" width="400"/>
 
 ---
 
@@ -95,6 +95,15 @@ The objective of this task is to exploit a vulnerable SSH service running on Met
 ### Objective
 To create an automated custom script using Python to replicate the exploitation of the SSH service and show a Proof of Concept (PoC).
 
+1. **Create Python File From Kali**
+```bash
+nano ssh_poc.py
+```
+<img src="SSH_Compromise/Create_Python.png" width="400"/>
+
+
+2. **Write The Script**
+   
 ### Script Details
 The script uses the `paramiko` library to:
 - Connect to the victim’s SSH service using the credentials `vagrant:vagrant`
@@ -130,16 +139,10 @@ except Exception as e:
     print(f"[-] Connection failed: {str(e)}")
 ```
 
-### Installation of Required Library
+<img src="SSH_Compromise/Python_script.png" width="400"/>
 
-Installed the necessary SSH library using:
-```bash
-pip install paramiko
-```
-
-### Running the Script
-
-Executed the custom Python script:
+   
+3. **Run Python File**
 ```bash
 python3 ssh_poc.py
 ```
@@ -149,7 +152,7 @@ python3 ssh_poc.py
 - The command `whoami` was executed remotely and returned the username `vagrant`, confirming shell access.
 
 **Proof Screenshot:**  
-> [Insert Screenshot of Python Script Output Showing Success]
+<img src="SSH_Compromise/Excuting_Script.png" width="400"/>
 
 ---
 

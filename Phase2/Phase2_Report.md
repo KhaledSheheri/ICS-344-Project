@@ -1,10 +1,3 @@
-# ICS344 Project - Phase 2
-**Student Name**: Khalid Alshehri  
-**University**: KFUPM  
-**Course**: ICS 344 - Computer and Network Security
-
----
-
 # Phase 2: Visual Analysis with a SIEM Dashboard
 
 ---
@@ -36,13 +29,11 @@ The objective was to monitor activities from both the attacker (Kali Linux) and 
 - Accepted license agreements.
 - Set the Splunk administrator username and password.
 
-✅ **Screenshot:** *(Insert Splunk installation screenshot)*
-
 ---
 
 ## Step 3: Attack Simulation
 
-SSH attacks were performed to generate log activity:
+SSH attacks were already performed during Phase 1 to generate log activity:
 
 - **Task 1.1**: Using Metasploit Framework:
   - Launched an SSH login attempt exploit.
@@ -53,15 +44,75 @@ SSH attacks were performed to generate log activity:
   - Scripted SSH login automation using `paramiko` library.
   - Connected from Kali to Metasploitable3 IP address.
 
-✅ **Proof:** *(Insert screenshot of successful Metasploit login and Python script execution)*
-
 ---
 
 ## Step 4: Extracting Log Files
 
-### 4.1 On the Victim Machine (Metasploitable3)
+1- Entering victim machine from attacker side:
+
+```bash
+ssh vagrant@172.20.10.5
+```
+
+2- Copy the file to directory that is feasible to Kali:
 
 ```bash
 sudo cp /var/log/auth.log /home/vagrant/
+```
+
+3- Give the permission to read the file by anyone:
+
+```bash
 sudo chmod 644 /home/vagrant/auth.log
+```
+
+4- After logout from victim machine and back to attacker, we can copy the file to attacker using:
+
+```bash
+scp vagrant@172.20.10.5:/home/vagrant/auth.log •
+```
+
+** add the img of copying
+
+## Step 4: Upload Logs File to Splunk
+
+1- Run Splunk using the helper downloaded earlier
+2- Access Splunk on http://localhost:8000/
+3- Settings → Add Data → Files & Directories → Upload
+
+## Step 5: Start Searching
+
+### 1- Search for all SSHD events
+
+```bash
+sshd
+```
+
+** picrure of The_moment_when_correct_found
+
+**We can walkthrough the events and notice the moment at which brute-force found the correct credentials**
+
+### 2- Check the Pattern of sshd attacks
+
+** picrure of The_moment_when_correct_found
+
+### 3- Filter the events by accepted and failed logins 
+
+```bash
+index=main sshd "Failed password" OR "Accepted password" | rex "(?<status>Failed password| Accepted password)" | stats count by status
+```
+
+** picrure of accepted_and_failed
+
+### 4- Filter the events by attackers host
+
+```bash
+index=main sshd stats count by host
+```
+
+** picrure of count_by_host
+
+
+
+
 

@@ -30,6 +30,10 @@ The entire project was performed in isolated virtual environments to ensure ethi
 | Mohammed Gaber Alhadi Asiri | 202041880 | 
 | Hassan Khalid Alharbi, | 202163510 | 
 
+# Work Distribution
+
+**We collaborated closely on all phases of the project, participating together through online meetings and jointly working on each task to ensure equal contribution and continuous discussion throughout the project stages.**
+
 ---
 
 ## 📚 Resources

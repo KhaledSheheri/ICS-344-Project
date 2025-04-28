@@ -32,7 +32,7 @@ Reasons for selecting fail2ban:
 
 ## Step 3: Defense Implementation
 
-### 3.1 Install fail2ban
+### 3.1 Install and Configure fail2ban
 
 1- SSH into the victim machine:
 
@@ -91,8 +91,31 @@ sudo fail2ban-client status sshd
 
 <img src="Defense_Screenshots/Creating_Defence_File.png" alt="Creating_Defence_File" width="400"/>
 
+### 3.2 Performing the Attack 
 
+1- Brute-Force Attack Attempt:
 
+<img src="Defense_Screenshots/Trying_Burteforce_Again.png" alt="Trying_Burteforce_Again" width="400"/>
+Observation:
+**We notice that after three wrong password attempts, access to the victim system is blocked as specified in the fail2ban configuration.**
 
+2- Attempting to Access After Being Banned:
 
+<img src="Defense_Screenshots/Trying_to_Access.png" alt="Trying_to_Access" width="400"/>
+Observation:
+**Since the attacker's IP address was banned, all further SSH access attempts were refused for 1 hour, ensuring the system’s protection.**
 
+### 3.3 Checking fail2ban After Attack
+<img src="Defense_Screenshots/Checking_File_Status_From_Metasploitable3.png" alt="Checking_File_Status_From_Metasploitable3" width="400"/>
+Explanation:
+
+- **The status output shows a total of 8 failed login attempts recorded.**
+
+- **It also displays the list of banned IP addresses, confirming that the attacker's IP was automatically banned by fail2ban.**
+
+## Conclusion
+The deployment of fail2ban on the victim machine effectively mitigated the SSH brute-force attack.
+By setting a maximum retry limit and banning repeated failed login attempts, the system became resilient to unauthorized access attempts.
+This demonstrates the importance and effectiveness of simple, automated defensive tools in enhancing cybersecurity posture.
+
+# End of Phase 3

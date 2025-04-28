@@ -22,7 +22,7 @@ The entire project was performed in isolated virtual environments to ensure ethi
 ---
 # Project Team Informations
 
-- **Team Number:3**
+- **Team Number: 3**
 
 | Name | Id |  
 |:--------|:-----|

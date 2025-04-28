@@ -1,1 +1,42 @@
+# Phase 3: Defensive Strategy Proposal
+
+---
+
+## Introduction
+
+In this phase, a defensive mechanism was proposed, implemented, and tested to protect the vulnerable SSH service running on the victim machine (Metasploitable3).  
+The goal was to mitigate brute-force SSH attacks and demonstrate the improved security status after defense deployment.
+
+---
+
+## Step 1: Environment Overview
+
+| Machine | Role | Description |
+|:--------|:-----|:------------|
+| Kali Linux (VMware) | Attacker | Launched SSH brute-force attacks |
+| Metasploitable3 (UTM) | Victim | Hosted SSH service |
+
+---
+
+## Step 2: Defense Selection
+
+The chosen defensive strategy was to install and configure **fail2ban** on the victim machine.  
+Fail2ban monitors system logs and automatically bans IP addresses after multiple failed SSH login attempts.
+
+Reasons for selecting fail2ban:
+- Easy and lightweight to configure.
+- Effective against brute-force SSH attacks.
+- Well-documented and widely used in production environments.
+
+---
+
+## Step 3: Defense Implementation
+
+### 3.1 Install fail2ban
+
+1- SSH into the victim machine:
+
+```bash
+ssh vagrant@172.20.10.5
+```
 

@@ -23,11 +23,12 @@ The entire project was performed in isolated virtual environments to ensure ethi
 # Project Team Informations
 
 - **Team Number:3**
+
 | Name | Id |  
 |:--------|:-----|
 | Khalid Alshehri | 202171170 | 
-|  |  | 
-|  |  | 
+| k | 2 | 
+| k | 3 | 
 
 ---
 
